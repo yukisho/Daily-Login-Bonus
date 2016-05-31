@@ -1,0 +1,9 @@
+# Daily-Login-Bonus
+
+The way this works is a player launches the game and a unique id is created for the player. The game connects and speaks to a database. It asks the database if the unique id exists in the database. If it does not exist, it creates a database entry for the player. It then returns to the game and destroys itself.
+
+However if it finds an existing unique id in the database, it asks if 24 hours has passed since the last login bonus. If that is true, then it returns to the game and says that yes, in fact the player can receive a login bonus. It also tells the game what bonus tier the player is on. The game then proceeds to set the bonus tier. It then tells the database that the bonus reward has been given and resets the login time to the current time and date and sets the bonus tier to the next tier. It then destroys itself.
+
+This way when the player logs back in or re-launches the game after 24 hours has passed, it will return that the player can get another login bonus. It will also check the database every time the game is launched whether 24 hours has passed or not, then destroy itself. On the game end, it is very minimal and takes up a total of two game objects.
+
+Note, it does not handle giving the player the actual bonus reward. That is up to you to decide how and what reward to give. It does however have a small example of setting the variable color to a color from a switch statement. If you get this extension, you don't have to remove the switch statement but you do have to define how you give the bonus reward. You will also have to define how your game handles it's unique id's for each player. If your game is solely single player yet you still want to offer this feature, you will have to define a unique global variable in a controller object and call that global variable in the system. I have a video on the marketplace page explaining this part in greater detail.
